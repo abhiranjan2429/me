@@ -13,7 +13,7 @@
 
 <head>
   <title>Abhiranjan</title>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
 </head>
 
 <body>
@@ -27,28 +27,37 @@
 
   <embed src="resume.pdf" width="600" height="500" type="application/pdf">
 
-  <script>
-    // Wait for the document and all resources to load
-    window.onload = function () {
-      // Function to load and render Markdown
-      async function loadMarkdown() {
-        try {
-          const response = await fetch('resume.md');
-          if (!response.ok) {
-            throw new Error('Failed to load Markdown file');
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          async function loadMarkdown() {
+              try {
+                  // Replace with your actual markdown filename
+                  const response = await fetch('resume.md');
+                  if (!response.ok) {
+                      throw new Error(`HTTP error! Status: ${response.status}`);
+                  }
+                  
+                  const markdownText = await response.text();
+                  
+                  // For newer versions of marked (4.x+), use this:
+                  if (typeof marked.parse === 'function') {
+                      document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
+                  } 
+                  // Fallback for older versions
+                  else if (typeof marked === 'function') {
+                      document.getElementById('markdown-content').innerHTML = marked(markdownText);
+                  } 
+                  else {
+                      throw new Error('Marked library is not loaded correctly');
+                  }
+              } catch (error) {
+                  console.error('Error loading Markdown:', error);
+                  document.getElementById('markdown-content').innerHTML = 'Failed to load content: ' + error.message;
+              }
           }
-          const markdownText = await response.text();
-
-          // The correct way to use marked - it's a function itself
-          document.getElementById('markdown-content').innerHTML = marked(markdownText);
-        } catch (error) {
-          console.error('Error loading Markdown:', error);
-          document.getElementById('markdown-content').innerHTML = 'Failed to load content.';
-        }
-      }
-
-      loadMarkdown();
-    };
+          
+          loadMarkdown();
+      });
   </script>
 </body>
 
