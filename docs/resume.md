@@ -21,7 +21,10 @@
 
  </div>
 
+<div style="width: 300px; height: 200px; background-image: url('wbutbnw.jfif'); background-size: cover; background-position: center;">
+  <!-- Content can go here if needed -->
+</div>
 
  #### Education Qualification:
-
- adasdasd
+**Bachelor of Technology (Computer Science and Engineering) with GPA 7/10** from
+Narula Institute of Technology, MAKAUT, West Bengal (2012-2016
