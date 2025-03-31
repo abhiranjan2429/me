@@ -21,7 +21,12 @@
 
  </div>
 
-<div style="width: 300px; height: 200px; background-image: url('wbutbnw.jfif'); background-size: cover; background-position: center;">
+<div style="display
+    margin-left: -4em;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: url('wbutbnw.jfif'); background-size: cover; background-position: center;">
   <!-- Content can go here if needed -->
 </div>
 
