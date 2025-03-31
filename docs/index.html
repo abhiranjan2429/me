@@ -14,6 +14,25 @@
 <head>
   <title>Abhiranjan</title>
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+  <style>
+    /* Container styling */
+    .markdown-body {
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+      .markdown-body {
+        padding: 15px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -27,37 +46,37 @@
 
   <embed src="resume.pdf" width="600" height="500" type="application/pdf">
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          async function loadMarkdown() {
-              try {
-                  // Replace with your actual markdown filename
-                  const response = await fetch('resume.md');
-                  if (!response.ok) {
-                      throw new Error(`HTTP error! Status: ${response.status}`);
-                  }
-                  
-                  const markdownText = await response.text();
-                  
-                  // For newer versions of marked (4.x+), use this:
-                  if (typeof marked.parse === 'function') {
-                      document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
-                  } 
-                  // Fallback for older versions
-                  else if (typeof marked === 'function') {
-                      document.getElementById('markdown-content').innerHTML = marked(markdownText);
-                  } 
-                  else {
-                      throw new Error('Marked library is not loaded correctly');
-                  }
-              } catch (error) {
-                  console.error('Error loading Markdown:', error);
-                  document.getElementById('markdown-content').innerHTML = 'Failed to load content: ' + error.message;
-              }
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      async function loadMarkdown() {
+        try {
+          // Replace with your actual markdown filename
+          const response = await fetch('resume.md');
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
           }
-          
-          loadMarkdown();
-      });
+
+          const markdownText = await response.text();
+
+          // For newer versions of marked (4.x+), use this:
+          if (typeof marked.parse === 'function') {
+            document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
+          }
+          // Fallback for older versions
+          else if (typeof marked === 'function') {
+            document.getElementById('markdown-content').innerHTML = marked(markdownText);
+          }
+          else {
+            throw new Error('Marked library is not loaded correctly');
+          }
+        } catch (error) {
+          console.error('Error loading Markdown:', error);
+          document.getElementById('markdown-content').innerHTML = 'Failed to load content: ' + error.message;
+        }
+      }
+
+      loadMarkdown();
+    });
   </script>
 </body>
 
