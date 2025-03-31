@@ -13,6 +13,8 @@
 
 <head>
   <title>Abhiranjan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
@@ -110,7 +112,7 @@
 
   <script>
     // Function to toggle between light and dark themes
-    function loadTheme() {
+    function toggleTheme() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
