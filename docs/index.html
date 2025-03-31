@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Embedding Example</title>
+  <title>Abhiranjan</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -25,14 +25,26 @@
 
   <embed src="resume.pdf" width="600" height="500" type="application/pdf">
 
-  <script>
-    fetch('resume.md')
-      .then(response => response.text())
-      .then(markdown => {
-        const html = marked(markdown);
-        console.log(markdown.toString())
-        document.getElementById('markdown-container').innerHTML = html;
-      }).catch(e=>console.error(e));
+    <script>
+      // Function to fetch and render the Markdown file
+      async function loadMarkdown() {
+          try {
+              // Replace 'your-file.md' with your actual markdown filename
+              const response = await fetch('resume.md');
+              if (!response.ok) {
+                  throw new Error('Failed to load Markdown file');
+              }
+              const markdownText = await response.text();
+              // Convert Markdown to HTML and insert into the page
+              document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
+          } catch (error) {
+              console.error('Error loading Markdown:', error);
+              document.getElementById('markdown-content').innerHTML = 'Failed to load content.';
+          }
+      }
+
+      // Call the function when the page loads
+      window.onload = loadMarkdown;
   </script>
 </body>
 </html>
