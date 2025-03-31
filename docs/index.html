@@ -18,7 +18,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-  <style>
+  <!-- <style>
     :root {
       /* Light theme colors */
       --bg-light: #fff;
@@ -94,23 +94,24 @@
     a:hover {
       text-decoration: underline;
     }
-  </style>
+  </style> -->
 
 </head>
 
 <body>
-  <h1>Embedding .docx, .md, and .pdf files</h1>
+  <!-- <h1>Embedding .docx, .md, and .pdf files</h1>
 
 
-  <h2>Embedded .md file:</h2>
+  <h2>Embedded .md file:</h2> -->
   <div id="markdown-content" class="markdown-body"></div>
 
-  <h2>Embedded .pdf file:</h2>
+  <!-- <h2>Embedded .pdf file:</h2>
 
   <embed src="resume.pdf" width="600" height="500" type="application/pdf">
-  <button class="theme-toggle-button" onclick="toggleTheme()">Toggle Theme</button>
+  <button class="theme-toggle-button" onclick="toggleTheme()">Toggle Theme</button> -->
 
   <script>
+    /*
     // Function to toggle between light and dark themes
     function toggleTheme() {
       const savedTheme = localStorage.getItem('theme');
@@ -124,7 +125,7 @@
       } else {
         document.body.classList.add('light-theme');
       }
-    }
+    }*/
     document.addEventListener('DOMContentLoaded', function () {
       async function loadMarkdown() {
         try {
