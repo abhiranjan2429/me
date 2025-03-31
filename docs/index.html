@@ -14,9 +14,10 @@
 <head>
   <title>Abhiranjan</title>
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
   <style>
-    /* Container styling */
+    /* Basic container styling */
     .markdown-body {
       box-sizing: border-box;
       min-width: 200px;
@@ -25,11 +26,49 @@
       padding: 45px;
     }
 
+    /* Styling for both themes */
+    body.light-theme {
+      background-color: #fff;
+      color: #000;
+    }
+
+    body.dark-theme {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    /* Button for theme toggle */
+    .theme-toggle-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .theme-toggle-button:hover {
+      background-color: #0056b3;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 767px) {
       .markdown-body {
         padding: 15px;
       }
+    }
+
+    /* For markdown link styling (GitHub style) */
+    a {
+      color: #007bff;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 
@@ -45,8 +84,22 @@
   <h2>Embedded .pdf file:</h2>
 
   <embed src="resume.pdf" width="600" height="500" type="application/pdf">
+  <button class="theme-toggle-button" onclick="toggleTheme()">Toggle Theme</button>
 
   <script>
+    // Function to toggle between light and dark themes
+    function toggleTheme() {
+      const body = document.body;
+
+      // Toggle the class on the body element to switch between themes
+      if (body.classList.contains('light-theme')) {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+      } else {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+      }
+    }
     document.addEventListener('DOMContentLoaded', function () {
       async function loadMarkdown() {
         try {
